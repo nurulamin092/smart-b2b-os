@@ -6,27 +6,7 @@ import Image from 'next/image';
 export default function HeroSection() {
     return (
         <>
-            <style jsx global>{`
-        .hero-shimmer {
-          background-image: linear-gradient(90deg, #a3a3a3, #171717, #a3a3a3, #171717, #a3a3a3);
-          background-position: center;
-          background-size: 200% auto;
-          animation: shimmer 4s linear infinite;
-        }
-        :where(.dark) .hero-shimmer {
-          background-image: linear-gradient(90deg, #525252, #fff, #525252, #fff, #525252);
-        }
-        @keyframes shimmer {
-          to {
-            background-position: 200% center;
-          }
-        }
-      `}</style>
-
             <section className="relative isolate overflow-hidden px-6 pt-24 md:pt-30 lg:px-8 pb-10">
-                {/* Background Gradient */}
-                <div className="pointer-events-none absolute -inset-x-12 -top-12 -z-10 h-[calc(100%+7rem)] rounded-[4rem] bg-linear-to-br from-[#ffe1d2] via-[#fdeee2] to-[#dceefb] opacity-90 blur-3xl sm:-inset-x-24 dark:from-[#ff6f42]/22 dark:via-transparent dark:to-sky-500/14"></div>
-
                 <div className="main-layout">
                     <div className="text-center max-w-4xl mx-auto">
                         <h1 className="text-2xl md:text-4xl lg:text-6xl font-semibold text-neutral-900 dark:text-white">

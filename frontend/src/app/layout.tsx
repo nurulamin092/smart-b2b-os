@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import Navbar from "@/components/shared/Navbar";
+import { LanguageProvider } from "@/context/language-context";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -26,17 +27,24 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
-      <body className="min-h-full flex flex-col">
+      <body className={`${inter.className} relative min-h-screen overflow-x-hidden bg-white dark:bg-[#0A0A0A]`}>
+
+        {/* The Gradient Background for the whole body */}
+        <div className="pointer-events-none absolute -inset-x-12 -top-12 -z-10 h-[calc(100%+7rem)] rounded-[4rem] bg-linear-to-br from-[#ffe1d2] via-[#fdeee2] to-[#dceefb] opacity-90 blur-3xl sm:-inset-x-24 dark:from-[#ff6f42]/22 dark:via-transparent dark:to-sky-500/14"></div>
+
         <ThemeProvider
           attribute="class" // Tells next-themes to add the 'dark' class to the <html> tag
           defaultTheme="system" // Defaults to the user's OS theme
           enableSystem
           disableTransitionOnChange // Prevents flashing when switching themes
         >
-          <Navbar />
-          {children}
+          <LanguageProvider>
+            <Navbar />
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
