@@ -25,6 +25,7 @@ import {
     SheetContent,
     SheetTrigger,
 } from "@/components/ui/sheet";
+import { useLanguage } from "@/context/language-context";
 
 // --- Language Dictionary ---
 const dictionary = {
@@ -58,7 +59,6 @@ const navLinks = [
 
 export default function Navbar() {
     const { theme, setTheme } = useTheme();
-    const [lang, setLang] = React.useState<"en" | "bn">("en");
     const [mounted, setMounted] = React.useState(false);
 
     // Prevent hydration mismatch
@@ -66,11 +66,9 @@ export default function Navbar() {
         setMounted(true);
     }, []);
 
-    const t = dictionary[lang];
+    const { lang, toggleLanguage } = useLanguage();
 
-    const toggleLanguage = () => {
-        setLang((prev) => (prev === "en" ? "bn" : "en"));
-    };
+    const t = dictionary[lang];
 
     if (!mounted) return null;
 

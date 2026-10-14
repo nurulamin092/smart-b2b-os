@@ -118,23 +118,43 @@
 
 @layer components {
   .btn-primary {
-    @apply flex items-center gap-2 rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm 
-    transition hover:bg-black dark:hover:bg-neutral-200 dark:hover:text-black 
+    @apply flex items-center gap-2 rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-black dark:hover:bg-neutral-200 dark:hover:text-black
   }
 
   .btn-sec {
     @apply flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-neutral-900 ring-1 ring-neutral-200 transition hover:bg-neutral-50 dark:bg-neutral-900 dark:text-white dark:ring-white/10 dark:hover:bg-neutral-800
   }
 
-  .main-layout{
-    @apply max-w-7xl mx-auto
+  .main-layout {
+    @apply mx-auto max-w-7xl px-4 lg:px-6
   }
 
-  .primary-clr{
+  .primary-clr {
     @apply bg-orange-500
   }
 
-  .secondary-clr{
+  .secondary-clr {
     @apply bg-black dark:bg-white
+  }
+
+  .text-heading {
+    @apply max-w-xl text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl lg:text-4xl dark:text-white
+  }
+}
+
+.hero-shimmer {
+  background-image: linear-gradient(90deg, #a3a3a3, #171717, #a3a3a3, #171717, #a3a3a3);
+  background-position: center;
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+:where(.dark) .hero-shimmer {
+  background-image: linear-gradient(90deg, #525252, #fff, #525252, #fff, #525252);
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
   }
 }
