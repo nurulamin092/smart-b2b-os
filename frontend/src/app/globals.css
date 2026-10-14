@@ -118,10 +118,23 @@
 
 @layer components {
   .btn-primary {
-    @apply flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200
+    @apply flex items-center gap-2 rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm 
+    transition hover:bg-black dark:hover:bg-neutral-200 dark:hover:text-black 
   }
 
   .btn-sec {
     @apply flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-neutral-900 ring-1 ring-neutral-200 transition hover:bg-neutral-50 dark:bg-neutral-900 dark:text-white dark:ring-white/10 dark:hover:bg-neutral-800
+  }
+
+  .main-layout{
+    @apply max-w-7xl mx-auto
+  }
+
+  .primary-clr{
+    @apply bg-orange-500
+  }
+
+  .secondary-clr{
+    @apply bg-black dark:bg-white
   }
 }
